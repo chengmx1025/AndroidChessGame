@@ -15,6 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name="com.example.chengmx.group16chessgame.GameRuleActivity"/>
+        <activity android:name="com.example.chengmx.group16chessgame.SingleGameActivity"/>
     </application>
 
 </manifest>
