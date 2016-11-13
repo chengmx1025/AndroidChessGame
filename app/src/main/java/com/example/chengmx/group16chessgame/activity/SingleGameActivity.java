@@ -70,9 +70,10 @@ public class SingleGameActivity extends Activity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
-                if (gameState != STATE_PLAYER_MOVE) {
-                    return false;
-                }
+                //if (gameState != STATE_PLAYER_MOVE) {
+                //    return false;
+                //}
+
                 float x = event.getX();
                 float y = event.getY();
                 if (!drawView.inChessBoard(x, y)) {
@@ -86,8 +87,8 @@ public class SingleGameActivity extends Activity {
                         downRow = row;
                         downCol = col;
                         break;
-                    case MotionEvent.ACTION_UP:
 
+                    case MotionEvent.ACTION_UP:
                         if (down && downRow == row && downCol == col) {
                             down = false;
                             //if (!Rule.isLegalMove(chessBoard, new Move(row, col), playerColor)) {
@@ -95,18 +96,23 @@ public class SingleGameActivity extends Activity {
                             //}
 
                             //玩家走步
-
                             Move move = new Move(row, col);
                             List<Move> moves = Rule.move(chessBoard, move, playerColor);
                             drawView.move(chessBoard, moves, move, playerColor);
-                            aiTurn();
-
+                            //aiTurn();
+                            if (playerColor == BLACK) {
+                                playerColor = WHITE;
+                            } else {
+                                playerColor = BLACK;
+                            }
                         }
                         break;
+
                     case MotionEvent.ACTION_CANCEL:
                         down = false;
                         break;
                 }
+
                 return true;
             }
         });

@@ -43,10 +43,21 @@ public class Rule {
     /**
      * 使用前务必先确认该步合法
      */
+
     public static List<Move> move(byte[][] chessBoard, Move move, byte chessColor) {
         int row = move.row;
         int col = move.col;
-        int i, j, temp, m, n, dirx, diry;
+        List<Move> moves = new ArrayList<Move>();
+        moves.add(new Move(row, col));
+        chessBoard[row][col] = chessColor;
+        return moves;
+    }
+
+    /*
+    public static List<Move> move(byte[][] chessBoard, Move move, byte chessColor) {
+        int row = move.row;
+        int col = move.col;
+         int i, j, temp, m, n, dirx, diry;
         List<Move> moves = new ArrayList<Move>();
         for (dirx = -1; dirx < 2; dirx++) {
             for (diry = -1; diry < 2; diry++) {
@@ -76,6 +87,7 @@ public class Rule {
         chessBoard[row][col] = chessColor;
         return moves;
     }
+    */
 
 
 }
