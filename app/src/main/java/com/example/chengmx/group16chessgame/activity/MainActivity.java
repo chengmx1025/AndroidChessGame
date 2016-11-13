@@ -1,12 +1,13 @@
-package com.example.chengmx.group16chessgame;
+package com.example.chengmx.group16chessgame.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Window;
 import android.widget.Button;
 
 import android.content.Intent;
 import android.view.View;
+
+import com.example.chengmx.group16chessgame.R;
 
 public class MainActivity extends AppCompatActivity {
 

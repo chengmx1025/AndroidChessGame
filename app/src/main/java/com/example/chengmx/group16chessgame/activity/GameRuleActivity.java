@@ -1,10 +1,10 @@
-package com.example.chengmx.group16chessgame;
+package com.example.chengmx.group16chessgame.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.Window;
-import android.widget.TextView;
+
+import com.example.chengmx.group16chessgame.R;
 
 /**
  * Created by chengmx on 2016/11/12.
