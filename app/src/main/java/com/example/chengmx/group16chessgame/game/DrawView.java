@@ -13,11 +13,8 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.WindowManager;
-
 import java.util.List;
-
 import com.example.chengmx.group16chessgame.R;
-
 
 /**
  * Created by chengmx on 2016/11/12.
@@ -52,7 +49,7 @@ public class DrawView extends SurfaceView implements SurfaceHolder.Callback {
      */
     private int scaleLevel = 2;
 
-    private static final int M = 8;
+    private static final int M = 10;
 
     /**
      * 棋格边长
@@ -97,9 +94,9 @@ public class DrawView extends SurfaceView implements SurfaceHolder.Callback {
         wm.getDefaultDisplay().getMetrics(dm);
         screenWidth = dm.widthPixels;
         bgLength = screenWidth * scale[scaleLevel];
-        chessBoardLength = 8f / 9f * bgLength;
-        a = chessBoardLength / 8;
-        margin = 1f / 18f * bgLength;
+        chessBoardLength = 10f / 11f * bgLength;
+        a = chessBoardLength / M;
+        margin = 1f / 22f * bgLength;
         chessBoardLeft = margin;
         chessBoardRight = chessBoardLeft + M * a;
         chessBoardTop = margin;
@@ -127,15 +124,15 @@ public class DrawView extends SurfaceView implements SurfaceHolder.Callback {
                 chessBoard[i][j] = NULL;
             }
         }
-        chessBoard[3][3] = WHITE;
-        chessBoard[3][4] = BLACK;
-        chessBoard[4][3] = BLACK;
         chessBoard[4][4] = WHITE;
+        chessBoard[4][5] = BLACK;
+        chessBoard[5][4] = BLACK;
+        chessBoard[5][5] = WHITE;
 
-        index[3][3] = 11;
-        index[3][4] = 0;
-        index[4][3] = 0;
         index[4][4] = 11;
+        index[4][5] = 0;
+        index[5][4] = 0;
+        index[5][5] = 11;
     }
 
 
@@ -220,7 +217,8 @@ public class DrawView extends SurfaceView implements SurfaceHolder.Callback {
         Paint paint2 = new Paint();
         paint2.setColor(Color.BLACK);
         paint2.setStrokeWidth(3);
-        for (int i = 0; i < 9; i++) {
+        //TODO
+        for (int i = 0; i < M+1; i++) {
             canvas.drawLine(chessBoardLeft, chessBoardTop + i * a, chessBoardRight, chessBoardTop + i * a, paint2);
             canvas.drawLine(chessBoardLeft + i * a, chessBoardTop, chessBoardLeft + i * a, chessBoardBottom, paint2);
         }
@@ -285,35 +283,11 @@ public class DrawView extends SurfaceView implements SurfaceHolder.Callback {
     private void loadChesses(Context context) {
         images[0] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.black1));
         images[11] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.white1));
-        /*
-        images[0] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.black1));
-        images[1] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.black2));
-        images[2] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.black3));
-        images[3] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.black4));
-        images[4] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.black5));
-        images[5] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.black6));
-        images[6] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.black7));
-        images[7] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.black8));
-        images[8] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.black9));
-        images[9] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.black10));
-        images[10] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.black11));
-        images[11] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.white1));
-        images[12] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.white2));
-        images[13] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.white3));
-        images[14] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.white4));
-        images[15] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.white5));
-        images[16] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.white6));
-        images[17] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.white7));
-        images[18] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.white8));
-        images[19] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.white9));
-        images[20] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.white10));
-        images[21] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.white11));
-        */
     }
 
     public static void copyBinaryArray(byte[][] src, byte[][] dest) {
-        for (int i = 0; i < 8; i++) {
-            System.arraycopy(src[i], 0, dest[i], 0, 8);
+        for (int i = 0; i < M; i++) {
+            System.arraycopy(src[i], 0, dest[i], 0, M);
         }
     }
 }

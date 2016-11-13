@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class Rule {
 
-    private static final int M = 8;
+    private static final int M = 10;
 
     public static boolean isLegalMove(byte[][] chessBoard, Move move, byte chessColor) {
         int row = move.row, col = move.col;
@@ -18,7 +18,7 @@ public class Rule {
     }
 
     public static boolean isLegal(int row, int col) {
-        return row >= 0 && row < 8 && col >= 0 && col < 8;
+        return row >= 0 && row < M && col >= 0 && col < M;
     }
 
     public static List<Move> move(byte[][] chessBoard, Move move, byte chessColor) {

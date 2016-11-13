@@ -44,7 +44,7 @@ public class SingleGameActivity extends Activity {
     private byte playerColor = BLACK;
     private byte aiColor;
 
-    private static final int M = 8;
+    private static final int M = 10;
     private static final int depth[] = new int[] { 0, 1, 2, 3, 7, 3, 5, 2, 4 };
 
     private byte[][] chessBoard = new byte[M][M];
@@ -146,10 +146,10 @@ public class SingleGameActivity extends Activity {
                 chessBoard[i][j] = NULL;
             }
         }
-        chessBoard[3][3] = WHITE;
-        chessBoard[3][4] = BLACK;
-        chessBoard[4][3] = BLACK;
         chessBoard[4][4] = WHITE;
+        chessBoard[4][5] = BLACK;
+        chessBoard[5][4] = BLACK;
+        chessBoard[5][5] = WHITE;
     }
 
     private void playerTurn(){
