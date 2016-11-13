@@ -52,7 +52,7 @@ public class DrawView extends SurfaceView implements SurfaceHolder.Callback {
      */
     private int scaleLevel = 2;
 
-    private static final int M = 20;
+    private static final int M = 8;
 
     /**
      * 棋格边长

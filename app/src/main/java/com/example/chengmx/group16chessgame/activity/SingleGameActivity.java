@@ -44,7 +44,7 @@ public class SingleGameActivity extends Activity {
     private byte playerColor = BLACK;
     private byte aiColor;
 
-    private static final int M = 20;
+    private static final int M = 8;
     private static final int depth[] = new int[] { 0, 1, 2, 3, 7, 3, 5, 2, 4 };
 
     private byte[][] chessBoard = new byte[M][M];
