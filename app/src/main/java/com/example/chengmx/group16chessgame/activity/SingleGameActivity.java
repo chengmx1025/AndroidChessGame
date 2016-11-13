@@ -70,6 +70,7 @@ public class SingleGameActivity extends Activity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
+                //TODO
                 //if (gameState != STATE_PLAYER_MOVE) {
                 //    return false;
                 //}
@@ -91,15 +92,17 @@ public class SingleGameActivity extends Activity {
                     case MotionEvent.ACTION_UP:
                         if (down && downRow == row && downCol == col) {
                             down = false;
-                            //if (!Rule.isLegalMove(chessBoard, new Move(row, col), playerColor)) {
-                            //    return true;
-                            //}
+                            if (!Rule.isLegalMove(chessBoard, new Move(row, col), playerColor)) {
+                                return true;
+                            }
 
                             //玩家走步
                             Move move = new Move(row, col);
                             List<Move> moves = Rule.move(chessBoard, move, playerColor);
                             drawView.move(chessBoard, moves, move, playerColor);
                             //aiTurn();
+
+                            //TODO
                             if (playerColor == BLACK) {
                                 playerColor = WHITE;
                             } else {
