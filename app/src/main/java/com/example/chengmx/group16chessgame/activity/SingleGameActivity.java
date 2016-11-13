@@ -20,26 +20,6 @@ import com.example.chengmx.group16chessgame.R;
 import com.example.chengmx.group16chessgame.game.DrawView;
 import com.example.chengmx.group16chessgame.widget.MessageDialog;
 
-import java.util.List;
-import android.app.Activity;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.preference.PreferenceManager;
-import android.view.KeyEvent;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
-import android.view.Window;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import java.util.List;
-
 
 /**
  * Created by chengmx on 2016/11/12.
@@ -47,7 +27,133 @@ import java.util.List;
 
 public class SingleGameActivity extends Activity {
 
+    private static final byte NULL = 0;
+    private static final byte BLACK = -1;
+    private static final byte WHITE = 1;
 
+    private static final int STATE_PLAYER_MOVE = 0;
+    private static final int STATE_AI_MOVE = 1;
+    private static final int STATE_GAME_OVER = 2;
+
+    private DrawView drawView = null;
+
+    private byte playerColor;
+    private byte aiColor;
+
+    private static final int M = 8;
+    private static final int depth[] = new int[] { 0, 1, 2, 3, 7, 3, 5, 2, 4 };
+
+    private byte[][] chessBoard = new byte[M][M];
+    private int gameState;
+
+
+    private MessageDialog msgDialog;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.single_game);
+        drawView = (DrawView) findViewById(R.id.drawView);
+
+        Bundle bundle = getIntent().getExtras();
+        playerColor = bundle.getByte("playerColor");
+        aiColor = (byte) -playerColor;
+
+        //playerImage = (ImageView) findViewById(R.id.player_image);
+        //aiImage = (ImageView) findViewById(R.id.aiImage);
+
+        initialChessboard();
+
+        drawView.setOnTouchListener(new View.OnTouchListener() {
+
+            boolean down = false;
+            int downRow;
+            int downCol;
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if (gameState != STATE_PLAYER_MOVE) {
+                    return false;
+                }
+                float x = event.getX();
+                float y = event.getY();
+                if (!drawView.inChessBoard(x, y)) {
+                    return false;
+                }
+                int row = drawView.getRow(y);
+                int col = drawView.getCol(x);
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        down = true;
+                        downRow = row;
+                        downCol = col;
+                        break;
+                    case MotionEvent.ACTION_UP:
+
+                        if (down && downRow == row && downCol == col) {
+                            down = false;
+                          //  if (!Rule.isLegalMove(chessBoard, new Move(row, col), playerColor)) {
+                                return true;
+                           // }
+
+
+                            //玩家走步
+
+                            //Move move = new Move(row, col);
+                            //List<Move> moves = Rule.move(chessBoard, move, playerColor);
+                            //drawView.move(chessBoard, moves, move, playerColor);
+                            //aiTurn();
+
+                        }
+                        break;
+                    case MotionEvent.ACTION_CANCEL:
+                        down = false;
+                        break;
+                }
+                return true;
+            }
+        });
+
+        if(playerColor == BLACK){
+           // playerImage.setImageResource(R.drawable.black1);
+           // aiImage.setImageResource(R.drawable.white1);
+           // playerTurn();
+        }else{
+           // playerImage.setImageResource(R.drawable.white1);
+           // aiImage.setImageResource(R.drawable.black1);
+          //  aiTurn();
+        }
+
+    }
+
+    private void initialChessboard(){
+        for (int i = 0; i < M; i++) {
+            for (int j = 0; j < M; j++) {
+                chessBoard[i][j] = NULL;
+            }
+        }
+        chessBoard[3][3] = WHITE;
+        chessBoard[3][4] = BLACK;
+        chessBoard[4][3] = BLACK;
+        chessBoard[4][4] = WHITE;
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+
+            Intent intent = new Intent(SingleGameActivity.this, MainActivity.class);
+            setResult(RESULT_CANCELED, intent);
+            SingleGameActivity.this.finish();
+            overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    /*
     private static final byte NULL = 0;
     private static final byte BLACK = -1;
     private static final byte WHITE = 1;
@@ -143,9 +249,9 @@ public class SingleGameActivity extends Activity {
                                 return true;
                             }
 
-                            /**
-                             * 玩家走步
-                             */
+
+                            //玩家走步
+
                             Move move = new Move(row, col);
                             List<Move> moves = Rule.move(chessBoard, move, playerColor);
                             drawView.move(chessBoard, moves, move, playerColor);
@@ -192,9 +298,9 @@ public class SingleGameActivity extends Activity {
         @Override
         public void handleMessage(Message msg) {
 
-            /**
-             * 更新游戏状态
-             */
+
+            //更新游戏状态
+
             int legalMoves = msg.what;
             int thinkingColor = msg.arg1;
             int legalMovesOfAI, legalMovesOfPlayer;
@@ -238,7 +344,7 @@ public class SingleGameActivity extends Activity {
         }
     };
 
-    /*
+
     private void playerTurn(){
         Statistic statistic = Rule.analyse(chessBoard, playerColor);
         playerChesses.setText(MULTIPLY + statistic.PLAYER);
@@ -257,7 +363,7 @@ public class SingleGameActivity extends Activity {
         gameState = STATE_AI_MOVE;
         new ThinkingThread(aiColor).start();
     }
-    */
+
 
     private void gameOver(int winOrLoseOrDraw){
 
@@ -285,6 +391,7 @@ public class SingleGameActivity extends Activity {
         }
         return super.onKeyDown(keyCode, event);
     }
+    */
 
     /*
     @Override

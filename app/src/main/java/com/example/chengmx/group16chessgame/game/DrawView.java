@@ -90,7 +90,6 @@ public class DrawView extends SurfaceView implements SurfaceHolder.Callback {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.ReversiView);
         ratio = typedArray.getFloat(R.styleable.ReversiView_ratio, 0.9f);
 
-
         getHolder().addCallback(this);
 
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
@@ -284,6 +283,8 @@ public class DrawView extends SurfaceView implements SurfaceHolder.Callback {
      * 加载棋子图片
      */
     private void loadChesses(Context context) {
+        images[0] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.black1));
+        images[11] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.white1));
         /*
         images[0] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.black1));
         images[1] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.black2));
