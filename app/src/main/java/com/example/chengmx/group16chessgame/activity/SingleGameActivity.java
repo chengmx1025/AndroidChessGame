@@ -18,7 +18,11 @@ import android.widget.TextView;
 
 import com.example.chengmx.group16chessgame.R;
 import com.example.chengmx.group16chessgame.game.DrawView;
+import com.example.chengmx.group16chessgame.game.Move;
+import com.example.chengmx.group16chessgame.game.Rule;
 import com.example.chengmx.group16chessgame.widget.MessageDialog;
+
+import java.util.List;
 
 
 /**
@@ -37,7 +41,7 @@ public class SingleGameActivity extends Activity {
 
     private DrawView drawView = null;
 
-    private byte playerColor;
+    private byte playerColor = BLACK;
     private byte aiColor;
 
     private static final int M = 8;
@@ -46,24 +50,16 @@ public class SingleGameActivity extends Activity {
     private byte[][] chessBoard = new byte[M][M];
     private int gameState;
 
-
     private MessageDialog msgDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.single_game);
         drawView = (DrawView) findViewById(R.id.drawView);
-
-        Bundle bundle = getIntent().getExtras();
-        playerColor = bundle.getByte("playerColor");
-        aiColor = (byte) -playerColor;
-
-        //playerImage = (ImageView) findViewById(R.id.player_image);
-        //aiImage = (ImageView) findViewById(R.id.aiImage);
-
         initialChessboard();
+
 
         drawView.setOnTouchListener(new View.OnTouchListener() {
 
@@ -94,17 +90,16 @@ public class SingleGameActivity extends Activity {
 
                         if (down && downRow == row && downCol == col) {
                             down = false;
-                          //  if (!Rule.isLegalMove(chessBoard, new Move(row, col), playerColor)) {
-                                return true;
-                           // }
-
+                            //if (!Rule.isLegalMove(chessBoard, new Move(row, col), playerColor)) {
+                            //    return true;
+                            //}
 
                             //玩家走步
 
-                            //Move move = new Move(row, col);
-                            //List<Move> moves = Rule.move(chessBoard, move, playerColor);
-                            //drawView.move(chessBoard, moves, move, playerColor);
-                            //aiTurn();
+                            Move move = new Move(row, col);
+                            List<Move> moves = Rule.move(chessBoard, move, playerColor);
+                            drawView.move(chessBoard, moves, move, playerColor);
+                            aiTurn();
 
                         }
                         break;
@@ -116,15 +111,17 @@ public class SingleGameActivity extends Activity {
             }
         });
 
+        /*
         if(playerColor == BLACK){
-           // playerImage.setImageResource(R.drawable.black1);
-           // aiImage.setImageResource(R.drawable.white1);
-           // playerTurn();
+            playerImage.setImageResource(R.drawable.black1);
+            aiImage.setImageResource(R.drawable.white1);
+            playerTurn();
         }else{
-           // playerImage.setImageResource(R.drawable.white1);
-           // aiImage.setImageResource(R.drawable.black1);
-          //  aiTurn();
+            playerImage.setImageResource(R.drawable.white1);
+            aiImage.setImageResource(R.drawable.black1);
+            aiTurn();
         }
+        */
 
     }
 
@@ -138,6 +135,14 @@ public class SingleGameActivity extends Activity {
         chessBoard[3][4] = BLACK;
         chessBoard[4][3] = BLACK;
         chessBoard[4][4] = WHITE;
+    }
+
+    private void playerTurn(){
+        gameState = STATE_PLAYER_MOVE;
+    }
+
+    private void aiTurn(){
+        gameState = STATE_AI_MOVE;
     }
 
     @Override
