@@ -33,4 +33,76 @@ public class Rule {
         chessBoard[row][col] = chessColor;
         return moves;
     }
+
+
+    public static boolean isEnded(byte[][] chessBoard, Move move, byte chessColor) {
+        int row = move.row;
+        int col = move.col;
+        int flag = 0;
+
+        for(int i=1; i<5;i++){
+            if(chessBoard[row-i][col] != chessColor)
+                flag = 1;
+        }
+        if (flag==0)
+            return true;
+
+        flag = 0;
+        for(int i=1; i<5;i++){
+            if(chessBoard[row+i][col] != chessColor)
+                flag = 1;
+        }
+        if (flag==0)
+            return true;
+
+        flag = 0;
+        for(int i=1; i<5;i++){
+            if(chessBoard[row][col-i] != chessColor)
+                flag = 1;
+        }
+        if (flag==0)
+            return true;
+
+        flag = 0;
+        for(int i=1; i<5;i++){
+            if(chessBoard[row][col+i] != chessColor)
+                flag = 1;
+        }
+        if (flag==0)
+            return true;
+
+        flag = 0;
+        for(int i=1; i<5;i++){
+            if(chessBoard[row-i][col-i] != chessColor)
+                flag = 1;
+        }
+        if (flag==0)
+            return true;
+
+        flag = 0;
+        for(int i=1; i<5;i++){
+            if(chessBoard[row+i][col-i] != chessColor)
+                flag = 1;
+        }
+        if (flag==0)
+            return true;
+
+        flag = 0;
+        for(int i=1; i<5;i++){
+            if(chessBoard[row-i][col+i] != chessColor)
+                flag = 1;
+        }
+
+        if (flag==0)
+            return true;
+        flag = 0;
+        for(int i=1; i<5;i++){
+            if(chessBoard[row+i][col+i] != chessColor)
+                flag = 1;
+        }
+        if (flag==0)
+            return true;
+
+        return false;
+    }
 }

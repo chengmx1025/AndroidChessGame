@@ -27,6 +27,6 @@
         android:layout_marginBottom="20dp"
         android:padding="10dp"
         android:textSize="18sp"
-        android:text="我知道了" />
+        android:text="GAME OVER" />
 
 </LinearLayout>
