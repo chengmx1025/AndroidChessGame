@@ -5,7 +5,6 @@ package com.example.chengmx.group16chessgame.game;
  */
 
 public class Move {
-
     public int row;
     public int col;
 

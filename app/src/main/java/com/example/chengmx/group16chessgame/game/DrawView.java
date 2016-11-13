@@ -24,36 +24,14 @@ public class DrawView extends SurfaceView implements SurfaceHolder.Callback {
 
     private RenderThread thread;
 
-    /**
-     * 屏幕宽度
-     */
     private float screenWidth;
-
-    /**
-     * 本View背景宽高
-     */
     private float bgLength;
-
-    /**
-     * 本View棋盘宽高
-     */
     private float chessBoardLength;
-
-    /**
-     * 背景宽占屏幕宽度的比重的数组
-     */
     private float scale[] = new float[] { 0.75f, 0.80f, 0.85f, 0.90f, 0.95f };
-
-    /**
-     * 背景宽占屏幕宽度的比重的索引
-     */
     private int scaleLevel = 2;
 
     private static final int M = 10;
 
-    /**
-     * 棋格边长
-     */
     private float a;
 
     private float chessBoardLeft;
@@ -61,14 +39,9 @@ public class DrawView extends SurfaceView implements SurfaceHolder.Callback {
     private float chessBoardTop;
     private float chessBoardBottom;
 
-    //private static final byte NULL = Constant.NULL;
-    //private static final byte BLACK = Constant.BLACK;
-    //private static final byte WHITE = Constant.WHITE;
-
     private static final byte NULL = 0;
     private static final byte BLACK = -1;
     private static final byte WHITE = 1;
-
 
     private float margin;
 
@@ -80,6 +53,7 @@ public class DrawView extends SurfaceView implements SurfaceHolder.Callback {
     private Bitmap background;
 
     private float ratio = 0.9f;
+
 
     public DrawView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
@@ -124,17 +98,6 @@ public class DrawView extends SurfaceView implements SurfaceHolder.Callback {
                 chessBoard[i][j] = NULL;
             }
         }
-        /*
-        chessBoard[4][4] = WHITE;
-        chessBoard[4][5] = BLACK;
-        chessBoard[5][4] = BLACK;
-        chessBoard[5][5] = WHITE;
-
-        index[4][4] = 11;
-        index[4][5] = 0;
-        index[5][4] = 0;
-        index[5][5] = 11;
-        */
     }
 
 
@@ -206,16 +169,10 @@ public class DrawView extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     public void render(Canvas canvas) {
-        /**
-         * 画背景
-         */
         Paint paint1 = new Paint();
 
         canvas.drawBitmap(background, 0, 0, paint1);
 
-        /**
-         * 画棋盘边框
-         */
         Paint paint2 = new Paint();
         paint2.setColor(Color.BLACK);
         paint2.setStrokeWidth(3);
@@ -225,9 +182,6 @@ public class DrawView extends SurfaceView implements SurfaceHolder.Callback {
             canvas.drawLine(chessBoardLeft + i * a, chessBoardTop, chessBoardLeft + i * a, chessBoardBottom, paint2);
         }
 
-        /**
-         * 画棋子
-         */
         Paint paint3 = new Paint();
         for (int col = 0; col < M; col++) {
             for (int row = 0; row < M; row++) {
@@ -269,7 +223,6 @@ public class DrawView extends SurfaceView implements SurfaceHolder.Callback {
 
     }
 
-
     public Bitmap loadBitmap(float width, float height, Drawable drawable) {
 
         Bitmap bitmap = Bitmap.createBitmap((int) width, (int) height, Bitmap.Config.ARGB_8888);
@@ -279,9 +232,6 @@ public class DrawView extends SurfaceView implements SurfaceHolder.Callback {
         return bitmap;
     }
 
-    /**
-     * 加载棋子图片
-     */
     private void loadChesses(Context context) {
         images[0] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.black1));
         images[11] = loadBitmap(a, a, context.getResources().getDrawable(R.drawable.white1));
