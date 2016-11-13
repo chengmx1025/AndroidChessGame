@@ -124,6 +124,7 @@ public class DrawView extends SurfaceView implements SurfaceHolder.Callback {
                 chessBoard[i][j] = NULL;
             }
         }
+        /*
         chessBoard[4][4] = WHITE;
         chessBoard[4][5] = BLACK;
         chessBoard[5][4] = BLACK;
@@ -133,6 +134,7 @@ public class DrawView extends SurfaceView implements SurfaceHolder.Callback {
         index[4][5] = 0;
         index[5][4] = 0;
         index[5][5] = 11;
+        */
     }
 
 

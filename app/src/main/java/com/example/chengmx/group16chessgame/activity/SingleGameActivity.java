@@ -146,10 +146,12 @@ public class SingleGameActivity extends Activity {
                 chessBoard[i][j] = NULL;
             }
         }
+        /*
         chessBoard[4][4] = WHITE;
         chessBoard[4][5] = BLACK;
         chessBoard[5][4] = BLACK;
         chessBoard[5][5] = WHITE;
+        */
     }
 
     private void playerTurn(){
