@@ -77,7 +77,7 @@ public class DrawView extends SurfaceView implements SurfaceHolder.Callback {
         chessBoardBottom = chessBoardTop + M * a;
         images = new Bitmap[22];
         loadChesses(context);
-        background = loadBitmap(bgLength, bgLength, context.getResources().getDrawable(R.drawable.mood));
+        background = loadBitmap(bgLength, bgLength, context.getResources().getDrawable(R.drawable.wood));
         initialChessBoard();
     }
 
