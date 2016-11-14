@@ -10,18 +10,12 @@ import android.widget.TextView;
 
 import com.example.chengmx.group16chessgame.R;
 
-
 /**
  * Created by chengmx on 2016/11/13.
  */
 
 public class MessageDialog extends Dialog {
-
-    /**
-     * 显示一条消息的对话框
-     */
     public MessageDialog(Context context, String msg) {
-
         super(context);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         View view = LayoutInflater.from(getContext()).inflate(R.layout.message_dialog, null);
@@ -37,8 +31,4 @@ public class MessageDialog extends Dialog {
 
         super.setContentView(view);
     }
-
-
-
-
 }

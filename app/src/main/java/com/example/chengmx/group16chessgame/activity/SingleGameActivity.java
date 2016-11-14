@@ -38,6 +38,9 @@ public class SingleGameActivity extends Activity {
     private static final int M = 10;
 
     private byte[][] chessBoard = new byte[M][M];
+    private List<byte[][]> chessBoards = new ArrayList<byte[][]>();
+
+
     private int gameState;
 
     private MessageDialog msgDialog;
@@ -49,8 +52,6 @@ public class SingleGameActivity extends Activity {
         setContentView(R.layout.single_game);
         drawView = (DrawView) findViewById(R.id.drawView);
         initialChessboard();
-        List<byte[][]> chessBoards = new ArrayList<byte[][]>();
-
 
         drawView.setOnTouchListener(new View.OnTouchListener() {
 
@@ -94,7 +95,7 @@ public class SingleGameActivity extends Activity {
                             //TODO
                             if(Rule.isEnded(chessBoard,move,playerColor)){
                                 gameState = STATE_GAME_OVER;
-                                gameOver(playerColor);
+                                gameOverMessage(playerColor);
                             }
 
                             if (playerColor == BLACK) {
@@ -124,14 +125,14 @@ public class SingleGameActivity extends Activity {
     }
 
     private void playerTurn(){
-        gameState = STATE_PLAYER_MOVE;
-    }
-
-    private void aiTurn(){
         gameState = STATE_AI_MOVE;
     }
 
-    private void gameOver(byte playerColor){
+    private void aiTurn(){
+        gameState = STATE_PLAYER_MOVE;
+    }
+
+    private void gameOverMessage(byte playerColor){
         String msg;
         if (playerColor==BLACK)
             msg = "BLACK WINS";
@@ -144,7 +145,6 @@ public class SingleGameActivity extends Activity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-
             Intent intent = new Intent(SingleGameActivity.this, MainActivity.class);
             setResult(RESULT_CANCELED, intent);
             SingleGameActivity.this.finish();
