@@ -36,10 +36,17 @@
         android:text="RULE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/playButton"
-        android:layout_alignLeft="@+id/playButton"
-        android:layout_alignStart="@+id/playButton"
-        android:layout_marginTop="48dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="96dp"
+        />
+
+    <Button
+        android:text="SETTING"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/settingButton"
+        android:layout_marginTop="144dp"
         />
 
 </RelativeLayout>

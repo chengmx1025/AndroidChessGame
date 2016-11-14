@@ -15,10 +15,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.example.chengmx.group16chessgame.activity.GameRuleActivity"/>
-        <activity android:name="com.example.chengmx.group16chessgame.activity.SingleGameActivity"/>
-        <activity android:name="com.example.chengmx.group16chessgame.activity.AIGameActivity"/>
+        <activity android:name=".activity.GameRuleActivity" />
+        <activity android:name=".activity.SingleGameActivity" />
+        <activity android:name=".activity.AIGameActivity" />
+        <activity android:name=".activity.SettingActivity" />
     </application>
 
 </manifest>
