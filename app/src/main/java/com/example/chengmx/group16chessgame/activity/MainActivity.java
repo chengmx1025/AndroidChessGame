@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private Button playButton;
     private Button settingButton;
     private Button ruleButton;
+    private Button playAIButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        playAIButton = (Button)findViewById(R.id.playAIButton);
+        playAIButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AIGameActivity.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }
+        });
 
         ruleButton = (Button)findViewById(R.id.ruleButton);
         ruleButton.setOnClickListener(new View.OnClickListener() {

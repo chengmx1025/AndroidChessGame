@@ -18,6 +18,7 @@
 
         <activity android:name="com.example.chengmx.group16chessgame.activity.GameRuleActivity"/>
         <activity android:name="com.example.chengmx.group16chessgame.activity.SingleGameActivity"/>
+        <activity android:name="com.example.chengmx.group16chessgame.activity.AIGameActivity"/>
     </application>
 
 </manifest>

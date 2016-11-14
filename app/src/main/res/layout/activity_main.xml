@@ -23,6 +23,15 @@
         android:id="@+id/playButton" />
 
     <Button
+        android:text="PLAY WITH AI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/playAIButton"
+        android:layout_marginTop="48dp"
+        />
+
+    <Button
         android:id="@+id/ruleButton"
         android:text="RULE"
         android:layout_width="wrap_content"
@@ -30,6 +39,7 @@
         android:layout_below="@+id/playButton"
         android:layout_alignLeft="@+id/playButton"
         android:layout_alignStart="@+id/playButton"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="48dp"
         />
+
 </RelativeLayout>
