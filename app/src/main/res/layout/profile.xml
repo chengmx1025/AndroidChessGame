@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:orientation="vertical"
+    android:background="#313131">
+
+    <TextView
+        android:text="PROFILE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/PROFILE"
+        android:textAllCaps="false"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        android:layout_marginTop="10dp"
+        android:textColor="#ffffff" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <TextView
+            android:text="name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/title_name"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:layout_weight="0.74"
+            android:textColor="#ffffff"
+            android:layout_marginTop="29dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/text_ID"
+            android:layout_weight="1.01"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:text="ID"
+            android:textColor="#ffffff"
+            android:enabled="false"
+            android:editable="false"/>
+
+    </LinearLayout>
+
+    <Button
+        android:text="change name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_name"
+        android:layout_marginLeft="130dp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="win/lose rate"
+            android:layout_width="match_parent"
+            android:id="@+id/title_record"
+            android:textAlignment="center"
+            android:textSize="35sp"
+            android:textColor="#ffffff"
+            android:layout_height="75dp"
+            android:layout_marginTop="40dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:weightSum="1"
+            android:layout_height="70dp">
+
+            <TextView
+                android:text="VS AI"
+                android:layout_width="194dp"
+                android:layout_height="match_parent"
+                android:id="@+id/title_record_AI"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/text_record_AI"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:text="win/lose"
+                android:textColor="#ffffff"
+                android:layout_marginLeft="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <TextView
+                android:text="VS player"
+                android:layout_width="195dp"
+                android:layout_height="match_parent"
+                android:id="@+id/title_record_player"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:text="win/lose"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/text_record_player"
+                android:layout_weight="1.07"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textColor="#ffffff"
+                android:layout_marginLeft="10dp" />
+        </LinearLayout>
+
+        <Button
+            android:text="reset record"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_reset"
+            android:layout_marginLeft="130dp"
+            android:layout_width="wrap_content" />
+    </LinearLayout>
+
+</LinearLayout>
