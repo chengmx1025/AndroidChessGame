@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private Button settingButton;
     private Button ruleButton;
     private Button playAIButton;
+    private Button profileButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +39,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ruleButton = (Button) findViewById(R.id.ruleButton);
-        ruleButton.setOnClickListener(new View.OnClickListener() {
+        profileButton = (Button) findViewById(R.id.profileButton);
+        profileButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, GameRuleActivity.class);
+                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
@@ -51,6 +52,15 @@ public class MainActivity extends AppCompatActivity {
         settingButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }
+        });
+
+        ruleButton = (Button) findViewById(R.id.ruleButton);
+        ruleButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, GameRuleActivity.class);
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }

@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.chengmx.group16chessgame.R;
+
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
@@ -38,7 +40,12 @@ public class ProfileActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
 
-        saveProfile("WANG", 1, 0, 1, 0);
+        String pack = "con.example.chengmx.group16chessgame";
+        File file = new File(getApplicationContext().getFilesDir().getAbsolutePath() + "/" + FILE_NAME);
+        if(!file.exists()){
+            saveProfile("USER", 2, 0, 1, 0);
+        }
+
         readProfile();
 
         text_ID = (EditText) this.findViewById(R.id.text_ID);
@@ -51,7 +58,7 @@ public class ProfileActivity extends Activity {
         text_ID.setEnabled(true);
         text_ID.setInputType(InputType.TYPE_CLASS_TEXT);
         text_ID.setSelection(text_ID.getText().length());
-
+        saveProfile(ID, record_AI_win, record_AI_lose, record_player_win, record_player_lose);
 
         text_record_AI.setText(record_AI_win + "/" + record_AI_lose);
         text_record_player.setText(record_player_win + "/" + record_player_lose);
@@ -59,6 +66,7 @@ public class ProfileActivity extends Activity {
         button_name.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 ID = text_ID.getText().toString();
+                saveProfile(ID, record_AI_win, record_AI_lose, record_player_win, record_player_lose);
             }
         });
         button_reset.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +77,7 @@ public class ProfileActivity extends Activity {
                 record_player_lose = 0;
                 text_record_AI.setText(record_AI_win + "/" + record_AI_lose);
                 text_record_player.setText(record_player_win + "/" + record_player_lose);
+                saveProfile(ID, record_AI_win, record_AI_lose, record_player_win, record_player_lose);
             }
         });
     }

@@ -19,6 +19,8 @@
         <activity android:name=".activity.SingleGameActivity" />
         <activity android:name=".activity.AIGameActivity" />
         <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.ProfileActivity" />
+        <service android:name=".Service.MyMusicService"></service>
     </application>
 
 </manifest>

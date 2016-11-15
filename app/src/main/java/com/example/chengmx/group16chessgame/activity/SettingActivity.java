@@ -26,12 +26,37 @@ public class SettingActivity extends Activity {
     private ServiceConnection conn;
     private MyMusicService musicService;
     private Button MusicButton;
+    private ToggleButton musicToggleButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting);
         conn = new Myconn();//建立服务连接对象
+
+        musicToggleButton = (ToggleButton)findViewById(R.id.toggleButton1);
+        musicToggleButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // 当按钮第一次被点击时候响应的事件
+                if (musicToggleButton.isChecked()) {
+                    if (musicService == null) {
+                        Intent intent = new Intent(SettingActivity.this,
+                                MyMusicService.class);
+                        bindService(intent, conn, Context.BIND_AUTO_CREATE);//绑定服务,后台也能播放
+                    } else {
+                        musicService.playMusic();
+                    }
+                }
+                // 当按钮再次被点击时候响应的事件
+                else {
+                    if (musicService != null) {
+                        musicService.stopMusic();
+                        musicService = null;
+                        unbindService(conn);
+                    }
+                }
+            }
+        });
 
         /*
         MusicButton = (Button)findViewById(R.id.musicButton);
