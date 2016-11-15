@@ -23,7 +23,7 @@ Online Mode - Play with another player online
 
 ##Screen Shoots
 ###Main Activity
-![main_activity](https://github.com/chengmx1025/Group16ChessGame/blob/master/screenshoots/main_activity.png =100*150)
+![main_activity](./screenshoots/main_activity.png =100*)
 
 ###Game
 ![chess game](https://github.com/chengmx1025/Group16ChessGame/blob/master/screenshoots/game.png)
