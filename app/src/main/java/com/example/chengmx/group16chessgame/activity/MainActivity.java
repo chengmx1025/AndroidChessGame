@@ -3,7 +3,6 @@ package com.example.chengmx.group16chessgame.activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
-
 import android.content.Intent;
 import android.view.View;
 
@@ -21,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        playButton = (Button)findViewById(R.id.playButton);
+        playButton = (Button) findViewById(R.id.playButton);
         playButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SingleGameActivity.class);
@@ -30,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        playAIButton = (Button)findViewById(R.id.playAIButton);
+        playAIButton = (Button) findViewById(R.id.playAIButton);
         playAIButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, AIGameActivity.class);
@@ -39,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ruleButton = (Button)findViewById(R.id.ruleButton);
+        ruleButton = (Button) findViewById(R.id.ruleButton);
         ruleButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, GameRuleActivity.class);
@@ -48,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        settingButton = (Button)findViewById(R.id.settingButton);
+        settingButton = (Button) findViewById(R.id.settingButton);
         settingButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SettingActivity.class);

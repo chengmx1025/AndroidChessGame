@@ -65,6 +65,10 @@ public class DrawView extends SurfaceView implements SurfaceHolder.Callback {
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
         wm.getDefaultDisplay().getMetrics(dm);
+        final WindowManager.LayoutParams params = new WindowManager.LayoutParams();
+        params.width = WindowManager.LayoutParams.MATCH_PARENT;
+        params.height = WindowManager.LayoutParams.MATCH_PARENT;
+
         screenWidth = dm.widthPixels;
         bgLength = screenWidth * scale[scaleLevel];
         chessBoardLength = 10f / 11f * bgLength;

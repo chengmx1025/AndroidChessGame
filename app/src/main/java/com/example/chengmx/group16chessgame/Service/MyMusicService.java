@@ -39,8 +39,7 @@ public class MyMusicService extends Service {
         // TODO Auto-generated method stub
         super.onCreate();
         if (mediaPlayer == null) {
-            mediaPlayer = mediaPlayer.create(MyMusicService.this,
-                    R.raw.bgm);
+            mediaPlayer = mediaPlayer.create(MyMusicService.this,R.raw.bgm);
             mediaPlayer.setLooping(false);// 设置不需要单曲循环
         }
         mediaPlayer.setOnCompletionListener(new OnCompletionListener() {

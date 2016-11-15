@@ -17,7 +17,9 @@
         android:textColor="#ffffff"/>
 
     <TextView
-        android:text="This is a game called five in a roll.\nTwo players take turns to put a chess on the chessboard.\nThe player first making five-in-a-line wins the game.\n\nHope you enjoy it! :)"
+        android:text="  This is a game called five in a roll. Players take turn each time to put a chess piece on the board. The one who can make five-in-a-line first wins the game.
+
+        Hope you enjoy!"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView2"
@@ -27,5 +29,9 @@
         android:textColor="#ffffff"
         android:textSize="20dp"
         />
+
+
+
+
 
 </LinearLayout>

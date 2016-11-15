@@ -21,7 +21,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/chessgame"
+            app:srcCompat="@drawable/title2"
             android:id="@+id/imageView" />
     </LinearLayout>
 
@@ -31,44 +31,46 @@
         android:layout_height="match_parent">
 
         <Button
+        android:id="@+id/ruleButton"
+
+        android:layout_width="120dp"
+        android:layout_height="45dp"
+            android:layout_below="@+id/settingButton"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/rule3"/>
+
+        <Button
 
             android:layout_width="190dp"
             android:layout_height="45dp"
             android:id="@+id/playAIButton"
-            android:layout_alignParentTop="true"
+            android:background="@drawable/start3"
+
             android:layout_centerHorizontal="true"
-            android:background="@drawable/single"
             />
 
         <Button
 
-            android:layout_width="190dp"
-            android:layout_height="45dp"
+        android:layout_width="190dp"
+        android:layout_height="45dp"
             android:id="@+id/playButton"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/ai3"
             android:layout_below="@+id/playAIButton"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="25dp"
-            android:background="@drawable/multi"/>
+            android:layout_alignLeft="@+id/playAIButton"
+            android:layout_alignStart="@+id/playAIButton" />
 
         <Button
 
-            android:layout_width="120dp"
-            android:layout_height="45dp"
+        android:layout_width="120dp"
+        android:layout_height="45dp"
             android:id="@+id/settingButton"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/setting3"
             android:layout_below="@+id/playButton"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="25dp"
-            android:background="@drawable/setting2"/>
-
-        <Button
-            android:id="@+id/ruleButton"
-
-            android:layout_width="120dp"
-            android:layout_height="45dp"
-            android:layout_below="@+id/settingButton"
-            android:layout_marginTop="25dp"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/about"/>
+            android:layout_alignLeft="@+id/ruleButton"
+            android:layout_alignStart="@+id/ruleButton" />
 
     </RelativeLayout>
 
