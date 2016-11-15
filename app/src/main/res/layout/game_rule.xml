@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#313131">
 
     <TextView
         android:text="Game Rule"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:textAlignment="center"
         android:id="@+id/textView"
-        android:textStyle="normal|bold" />
+        android:textStyle="normal|bold"
+        android:textSize="40dp"
+        android:textColor="#ffffff"/>
 
     <TextView
-        android:text="This is a game called five in a roll."
+        android:text="This is a game called five in a roll.\nTwo players take turns to put a chess on the chessboard.\nThe player first making five-in-a-line wins the game.\n\nHope you enjoy it! :)"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2" />
+        android:id="@+id/textView2"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        />
+
 </LinearLayout>
