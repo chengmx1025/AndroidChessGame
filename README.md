@@ -25,16 +25,13 @@ Online Mode - Play with another player online
 ###Main Activity
 <img src="./screenshoots/main_activity.png" width = "300" height = "500"/>
 
-
 ###Game
 <img src="./screenshoots/game.png" width = "300" height = "500"/>
-
 <img src="./screenshoots/winning_dia.png" width = "300" height = "500"/>
 
 
 ###Setting
 <img src="./screenshoots/setting.png" width = "300" height = "500"/>
-
 
 ##References
 laserwave's project - reversi chess: [https://github.com/laserwave/Reversi](https://github.com/laserwave/Reversi)
