@@ -32,42 +32,47 @@
 
         <Button
         android:id="@+id/ruleButton"
-
         android:layout_width="120dp"
         android:layout_height="45dp"
             android:layout_below="@+id/settingButton"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="25dp"
             android:layout_centerHorizontal="true"
             android:background="@drawable/rule3"/>
 
         <Button
-
             android:layout_width="190dp"
             android:layout_height="45dp"
             android:id="@+id/playAIButton"
             android:background="@drawable/start3"
-
             android:layout_centerHorizontal="true"
             />
 
         <Button
-
         android:layout_width="190dp"
         android:layout_height="45dp"
             android:id="@+id/playButton"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="25dp"
             android:background="@drawable/ai3"
             android:layout_below="@+id/playAIButton"
             android:layout_alignLeft="@+id/playAIButton"
             android:layout_alignStart="@+id/playAIButton" />
 
         <Button
-
         android:layout_width="120dp"
         android:layout_height="45dp"
             android:id="@+id/settingButton"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="25dp"
             android:background="@drawable/setting3"
+            android:layout_below="@+id/profileButton"
+            android:layout_alignLeft="@+id/ruleButton"
+            android:layout_alignStart="@+id/ruleButton" />
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="45dp"
+            android:id="@+id/profileButton"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/profile3"
             android:layout_below="@+id/playButton"
             android:layout_alignLeft="@+id/ruleButton"
             android:layout_alignStart="@+id/ruleButton" />
