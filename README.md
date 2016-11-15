@@ -5,7 +5,7 @@ This is a game called **Five-In-A-Row**.
 
 Two players take turns to put a chess on the chessboard.
 
-The player who first makes five-chess-in-a-line wins the game.
+The player who first makes five chess in a line wins the game.
 
 Hope you enjoy it! :)
 
@@ -24,6 +24,7 @@ Online Mode - Play with another player online
 ##Screen Shoots
 ###Main Activity
 ![main_activity](./screenshoots/main_activity.png =100x)
+<img src="./screenshoots/main_activity.png" width = "100" height = "200" alt="图片名称" align=left />
 
 ###Game
 ![chess game](https://github.com/chengmx1025/Group16ChessGame/blob/master/screenshoots/game.png =100x)
