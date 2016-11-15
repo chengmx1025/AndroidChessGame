@@ -23,17 +23,18 @@ Online Mode - Play with another player online
 
 ##Screen Shoots
 ###Main Activity
-<img src="./screenshoots/main_activity.png" width = "300" height = "450"/>
-
+<img src="./screenshoots/main_activity.png" width = "300" height = "500"/>
 
 
 ###Game
-![chess game](https://github.com/chengmx1025/Group16ChessGame/blob/master/screenshoots/game.png =100x)
+<img src="./screenshoots/game.png" width = "300" height = "500"/>
 
-![chess game](https://github.com/chengmx1025/Group16ChessGame/blob/master/screenshoots/winning_dia.png)
+<img src="./screenshoots/winning_dia.png" width = "300" height = "500"/>
+
 
 ###Setting
-![setting](https://github.com/chengmx1025/Group16ChessGame/blob/master/screenshoots/setting.png)
+<img src="./screenshoots/setting.png" width = "300" height = "500"/>
+
 
 ##References
 laserwave's project - reversi chess: [https://github.com/laserwave/Reversi](https://github.com/laserwave/Reversi)
