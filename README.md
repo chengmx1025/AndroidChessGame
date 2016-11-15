@@ -1,24 +1,27 @@
-# Group16ChessGame - Five In A Row
+# Group16 ChessGame - Five In A Row
 
 ##Introduction
 This is a game called **Five-In-A-Row**.
+
 Two players take turns to put a chess on the chessboard.
 
-The player first making five-in-a-line wins the game.
+The player who first makes five-chess-in-a-line wins the game.
 
 Hope you enjoy it! :)
 
 ##Main Functions
-Play with AI
+Single Player Mode - Play with AI
+
+Multi Player Mode - Play with a friend on one device
 
 Background Music
 
 Settings
 
 ##Expected Functions
-Play with other players online
+Online Mode - Play with another player online
 
 ##Screen Shoots
 
 ##References
-laserwave's android project - reversi chess: [https://github.com/laserwave/Reversi](https://github.com/laserwave/Reversi)
+laserwave's project - reversi chess: [https://github.com/laserwave/Reversi](https://github.com/laserwave/Reversi)
