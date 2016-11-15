@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="themes">
+        <item>classic</item>
+        <item>light </item>
+        <item>dark</item>
+        <item>medieval</item>
+        <item>cyberpunk</item>
+    </string-array>
+</resources>
