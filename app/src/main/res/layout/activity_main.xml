@@ -21,7 +21,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/title"
+            app:srcCompat="@drawable/chessgame"
             android:id="@+id/imageView" />
     </LinearLayout>
 
@@ -32,23 +32,23 @@
 
         <Button
 
-            android:layout_width="120dp"
+            android:layout_width="190dp"
             android:layout_height="45dp"
             android:id="@+id/playButton"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/start"
+            android:background="@drawable/single"
             />
 
         <Button
 
-            android:layout_width="170dp"
+            android:layout_width="190dp"
             android:layout_height="45dp"
             android:id="@+id/playAIButton"
             android:layout_below="@+id/playButton"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/ai"/>
+            android:layout_marginTop="25dp"
+            android:background="@drawable/multi"/>
 
         <Button
 
@@ -57,8 +57,8 @@
             android:id="@+id/settingButton"
             android:layout_below="@+id/playAIButton"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/setting"/>
+            android:layout_marginTop="25dp"
+            android:background="@drawable/setting2"/>
 
         <Button
             android:id="@+id/ruleButton"
@@ -66,9 +66,9 @@
             android:layout_width="120dp"
             android:layout_height="45dp"
             android:layout_below="@+id/settingButton"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="25dp"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/rule"/>
+            android:background="@drawable/about"/>
 
     </RelativeLayout>
 

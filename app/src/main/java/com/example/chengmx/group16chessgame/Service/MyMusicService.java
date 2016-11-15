@@ -13,7 +13,6 @@ import android.os.IBinder;
 
 import com.example.chengmx.group16chessgame.R;
 
-
 public class MyMusicService extends Service {
 
     private MediaPlayer mediaPlayer;//声明媒体播放器
