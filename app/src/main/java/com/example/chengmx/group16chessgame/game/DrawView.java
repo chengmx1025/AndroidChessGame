@@ -103,6 +103,21 @@ public class DrawView extends SurfaceView implements SurfaceHolder.Callback {
         }
     }
 
+    //TODO
+    public void updateChessBoard(byte newchessBoard[][]){
+        this.copyBinaryArray(newchessBoard, this.chessBoard);
+
+        for (int row = 0; row<10;row++)
+            for(int col = 0; col <10 ; col++)
+                if (chessBoard[row][col] == WHITE) {
+                    index[row][col] = 11;
+                } else if (chessBoard[row][col] == BLACK) {
+                    index[row][col] = 0;
+                }
+
+        this.update();
+    }
+
 
     private int updateIndex(int index, int color) {
 

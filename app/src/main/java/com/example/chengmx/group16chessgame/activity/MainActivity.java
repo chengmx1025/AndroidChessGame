@@ -8,6 +8,10 @@ import android.view.View;
 
 import com.example.chengmx.group16chessgame.R;
 
+/**
+ * Created by chengmx on 2016/11/12.
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     private Button playButton;

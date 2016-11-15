@@ -35,6 +35,11 @@ public class SettingActivity extends Activity {
         conn = new Myconn();//建立服务连接对象
 
         musicToggleButton = (ToggleButton)findViewById(R.id.toggleButton1);
+        /*
+        if(musicService != null) {
+            musicToggleButton.setChecked(true);
+        }
+        */
         musicToggleButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // 当按钮第一次被点击时候响应的事件
@@ -115,9 +120,7 @@ public class SettingActivity extends Activity {
         @Override
         public void onServiceDisconnected(ComponentName name) {
             conn = null;
-
         }
-
     }
 
     @Override

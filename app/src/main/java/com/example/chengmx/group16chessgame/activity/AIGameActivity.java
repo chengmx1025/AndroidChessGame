@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 
 import com.example.chengmx.group16chessgame.R;
 import com.example.chengmx.group16chessgame.game.AI;
@@ -31,20 +32,24 @@ public class AIGameActivity extends Activity {
     private static final int STATE_AI_MOVE = 1;
     private static final int STATE_GAME_OVER = 2;
 
-    private DrawView drawView = null;
-
     private byte playerColor = BLACK;
     private byte aiColor = WHITE;
 
     private static final int M = 10;
-
     private byte[][] chessBoard = new byte[M][M];
     private List<byte[][]> chessBoards = new ArrayList<byte[][]>();
-
-
     private int gameState;
 
+    private DrawView drawView = null;
+    private Button undoButton;
+    private Button newGameButton;
+
     private MessageDialog msgDialog;
+
+    private int newestPlayerX = -1;
+    private int newestPlayerY = -1;
+    private int newestAIX = -1;
+    private int newestAIY = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,10 +57,12 @@ public class AIGameActivity extends Activity {
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.single_game);
         drawView = (DrawView) findViewById(R.id.drawView);
+        undoButton = (Button) findViewById(R.id.undoButton);
+        newGameButton = (Button) findViewById(R.id.newGameButton);
+
         initialChessboard();
 
         drawView.setOnTouchListener(new View.OnTouchListener() {
-
             boolean down = false;
             int downRow;
             int downCol;
@@ -88,6 +95,9 @@ public class AIGameActivity extends Activity {
                                 return true;
                             }
 
+                            newestPlayerX = row;
+                            newestPlayerY = col;
+
                             Move move = new Move(row, col);
                             List<Move> moves = Rule.move(chessBoard, move, playerColor);
                             drawView.move(chessBoard, moves, move, playerColor);
@@ -101,6 +111,10 @@ public class AIGameActivity extends Activity {
                             else {
                                 AI ai = new AI();
                                 move = ai.getAINextMove(chessBoard, aiColor);
+
+                                newestAIX = move.row;
+                                newestAIY = move.col;
+
                                 moves = Rule.move(chessBoard, move, aiColor);
                                 drawView.move(chessBoard, moves, move, aiColor);
 
@@ -124,10 +138,27 @@ public class AIGameActivity extends Activity {
                         down = false;
                         break;
                 }
-
                 return true;
             }
         });
+
+        undoButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                chessBoard[newestPlayerX][newestPlayerY] = NULL;
+                chessBoard[newestAIX][newestAIY] = NULL;
+                drawView.updateChessBoard(chessBoard);
+            }
+        });
+
+        newGameButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                initialChessboard();
+                drawView.initialChessBoard();
+                gameState = STATE_PLAYER_MOVE;
+                //drawView.update();
+            }
+        });
+
     }
 
     private void initialChessboard(){

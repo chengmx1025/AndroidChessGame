@@ -16,8 +16,8 @@ public class AI {
     {0,1,1,1,1,1,1,1,1,0},
     {0,1,2,2,2,2,2,2,1,0},
     {0,1,2,3,3,3,3,2,1,0},
-    {0,1,2,3,4,4,3,2,1,0},
-    {0,1,2,3,4,4,3,2,1,0},
+    {0,1,2,3,5,5,3,2,1,0},
+    {0,1,2,3,5,5,3,2,1,0},
     {0,1,2,3,3,3,3,2,1,0},
     {0,1,2,2,2,2,2,2,1,0},
     {0,1,1,1,1,1,1,1,1,0},
@@ -88,72 +88,72 @@ public class AI {
 
                     //3
                     if(i>=3 && chessBoard[i-1][j]==-1 && chessBoard[i-2][j]==-1 && chessBoard[i-3][j]==-1)
-                        valueTable[i][j] += 3000;
+                        valueTable[i][j] += 4000;
                     if(i>=3 && chessBoard[i-1][j]==1 && chessBoard[i-2][j]==1 && chessBoard[i-3][j]==1)
                         valueTable[i][j] += 2000;
                     if(j>=3 && chessBoard[i][j-1]==-1 && chessBoard[i][j-2]==-1 && chessBoard[i][j-3]==-1)
-                        valueTable[i][j] += 3000;
+                        valueTable[i][j] += 4000;
                     if(j>=3 && chessBoard[i][j-1]==1 && chessBoard[i][j-2]==1 && chessBoard[i][j-3]==1)
                         valueTable[i][j] += 2000;
                     if(i<=6 && chessBoard[i+1][j]==-1 && chessBoard[i+2][j]==-1 && chessBoard[i+3][j]==-1)
-                        valueTable[i][j] += 3000;
+                        valueTable[i][j] += 4000;
                     if(i<=6 && chessBoard[i+1][j]==1 && chessBoard[i+2][j]==1 && chessBoard[i+3][j]==1)
                         valueTable[i][j] += 2000;
                     if(j<=6 && chessBoard[i][j+1]==-1 && chessBoard[i][j+2]==-1 && chessBoard[i][j+3]==-1)
-                        valueTable[i][j] += 3000;
+                        valueTable[i][j] += 4000;
                     if(j<=6 && chessBoard[i][j+1]==1 && chessBoard[i][j+2]==1 && chessBoard[i][j+3]==1)
                         valueTable[i][j] += 2000;
 
                     if(i>=3 && j>=3 && chessBoard[i-1][j-1]==-1 && chessBoard[i-2][j-2]==-1 && chessBoard[i-3][j-3]==-1)
-                        valueTable[i][j] += 3000;
+                        valueTable[i][j] += 4000;
                     if(i>=3 && j>=3 && chessBoard[i-1][j-1]==1 && chessBoard[i-2][j-2]==1 && chessBoard[i-3][j-3]==1)
                         valueTable[i][j] += 2000;
                     if(i>=3 && j<=6 && chessBoard[i-1][j+1]==-1 && chessBoard[i-2][j+2]==-1 && chessBoard[i-3][j+3]==-1)
-                        valueTable[i][j] += 3000;
+                        valueTable[i][j] += 4000;
                     if(i>=3 && j<=6 && chessBoard[i-1][j+1]==1 && chessBoard[i-2][j+2]==1 && chessBoard[i-3][j+3]==1)
                         valueTable[i][j] += 2000;
                     if(i<=6 && j>=3 && chessBoard[i+1][j-1]==-1 && chessBoard[i+2][j-2]==-1 && chessBoard[i+3][j-3]==-1)
-                        valueTable[i][j] += 3000;
+                        valueTable[i][j] += 4000;
                     if(i<=6 && j>=3 && chessBoard[i+1][j-1]==1 && chessBoard[i+2][j-2]==1 && chessBoard[i+3][j-3]==1)
                         valueTable[i][j] += 2000;
                     if(i<=6 && j<=6 && chessBoard[i+1][j+1]==-1 && chessBoard[i+2][j+2]==-1 && chessBoard[i+3][j+3]==-1)
-                        valueTable[i][j] += 3000;
+                        valueTable[i][j] += 4000;
                     if(i<=6 && j<=6 && chessBoard[i+1][j+1]==1 && chessBoard[i+2][j+2]==1 && chessBoard[i+3][j+3]==1)
                         valueTable[i][j] += 2000;
 
 
                     //4
                     if(i>=4 && chessBoard[i-1][j]==-1 && chessBoard[i-2][j]==-1 && chessBoard[i-3][j]==-1 && chessBoard[i-4][j]==-1)
-                        valueTable[i][j] += 30000;
+                        valueTable[i][j] += 40000;
                     if(i>=4 && chessBoard[i-1][j]==1 && chessBoard[i-2][j]==1 && chessBoard[i-3][j]==1 && chessBoard[i-4][j]==1)
                         valueTable[i][j] += 20000;
                     if(j>=4 && chessBoard[i][j-1]==-1 && chessBoard[i][j-2]==-1 && chessBoard[i][j-3]==-1 && chessBoard[i][j-4]==-1)
-                        valueTable[i][j] += 30000;
+                        valueTable[i][j] += 40000;
                     if(j>=4 && chessBoard[i][j-1]==1 && chessBoard[i][j-2]==1 && chessBoard[i][j-3]==1 && chessBoard[i][j-4]==1)
                         valueTable[i][j] += 20000;
                     if(i<=5 && chessBoard[i+1][j]==-1 && chessBoard[i+2][j]==-1 && chessBoard[i+3][j]==-1 && chessBoard[i+4][j]==-1)
-                        valueTable[i][j] += 30000;
+                        valueTable[i][j] += 40000;
                     if(i<=5 && chessBoard[i+1][j]==1 && chessBoard[i+2][j]==1 && chessBoard[i+3][j]==1 && chessBoard[i+4][j]==1)
                         valueTable[i][j] += 20000;
                     if(j<=5 && chessBoard[i][j+1]==-1 && chessBoard[i][j+2]==-1 && chessBoard[i][j+3]==-1 && chessBoard[i][j+4]==-1)
-                        valueTable[i][j] += 30000;
+                        valueTable[i][j] += 40000;
                     if(j<=5 && chessBoard[i][j+1]==1 && chessBoard[i][j+2]==1 && chessBoard[i][j+3]==1 && chessBoard[i][j+4]==1)
                         valueTable[i][j] += 20000;
 
                     if(i>=4 && j>=4 && chessBoard[i-1][j-1]==-1 && chessBoard[i-2][j-2]==-1 && chessBoard[i-3][j-3]==-1 && chessBoard[i-4][j-4]==-1)
-                        valueTable[i][j] += 30000;
+                        valueTable[i][j] += 40000;
                     if(i>=4 && j>=4 && chessBoard[i-1][j-1]==1 && chessBoard[i-2][j-2]==1 && chessBoard[i-3][j-3]==1 && chessBoard[i-4][j-4]==1)
                         valueTable[i][j] += 20000;
                     if(i>=4 && j<=6 && chessBoard[i-1][j+1]==-1 && chessBoard[i-2][j+2]==-1 && chessBoard[i-3][j+3]==-1 && chessBoard[i-4][j+4]==-1)
-                        valueTable[i][j] += 30000;
+                        valueTable[i][j] += 40000;
                     if(i>=4 && j<=6 && chessBoard[i-1][j+1]==1 && chessBoard[i-2][j+2]==1 && chessBoard[i-3][j+3]==1 && chessBoard[i-4][j+4]==1)
                         valueTable[i][j] += 20000;
                     if(i<=5 && j>=4 && chessBoard[i+1][j-1]==-1 && chessBoard[i+2][j-2]==-1 && chessBoard[i+3][j-3]==-1 && chessBoard[i+4][j-4]==-1)
-                        valueTable[i][j] += 30000;
+                        valueTable[i][j] += 40000;
                     if(i<=5 && j>=4 && chessBoard[i+1][j-1]==1 && chessBoard[i+2][j-2]==1 && chessBoard[i+3][j-3]==1 && chessBoard[i+4][j-4]==1)
                         valueTable[i][j] += 20000;
                     if(i<=5 && j<=5 && chessBoard[i+1][j+1]==-1 && chessBoard[i+2][j+2]==-1 && chessBoard[i+3][j+3]==-1 && chessBoard[i+4][j+4]==-1)
-                        valueTable[i][j] += 30000;
+                        valueTable[i][j] += 40000;
                     if(i<=5 && j<=5 && chessBoard[i+1][j+1]==1 && chessBoard[i+2][j+2]==1 && chessBoard[i+3][j+3]==1 && chessBoard[i+4][j+4]==1)
                         valueTable[i][j] += 20000;
 

@@ -1,9 +1,5 @@
 package com.example.chengmx.group16chessgame.Service;
 
-/**
- * Created by chengmx on 2016/11/15.
- */
-
 import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -12,6 +8,10 @@ import android.os.Binder;
 import android.os.IBinder;
 
 import com.example.chengmx.group16chessgame.R;
+
+/**
+ * Created by chengmx on 2016/11/15.
+ */
 
 public class MyMusicService extends Service {
 
