@@ -22,6 +22,16 @@ Settings
 Online Mode - Play with another player online
 
 ##Screen Shoots
+###Main Activity
+![chess game](https://github.com/chengmx1025/Group16ChessGame/blob/master/screenshoots/main_activity.png?raw=true)
+
+###Game
+![chess game](https://github.com/chengmx1025/Group16ChessGame/blob/master/screenshoots/game.png?raw=true)
+
+![chess game](https://github.com/chengmx1025/Group16ChessGame/blob/master/screenshoots/winning_dia.png?raw=true)
+
+###Setting
+![chess game](https://github.com/chengmx1025/Group16ChessGame/blob/master/screenshoots/setting.png?raw=true)
 
 ##References
 laserwave's project - reversi chess: [https://github.com/laserwave/Reversi](https://github.com/laserwave/Reversi)
