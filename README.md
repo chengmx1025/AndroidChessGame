@@ -23,8 +23,9 @@ Online Mode - Play with another player online
 
 ##Screen Shoots
 ###Main Activity
-![main_activity](./screenshoots/main_activity.png =100x)
-<img src="./screenshoots/main_activity.png" width = "100" height = "200" alt="图片名称" align=left />
+<img src="./screenshoots/main_activity.png" width = "300" height = "450"/>
+
+
 
 ###Game
 ![chess game](https://github.com/chengmx1025/Group16ChessGame/blob/master/screenshoots/game.png =100x)
