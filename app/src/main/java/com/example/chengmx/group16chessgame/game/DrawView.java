@@ -49,7 +49,6 @@ public class DrawView extends SurfaceView implements SurfaceHolder.Callback {
     private int[][] index;
 
     private Bitmap[] images;
-
     private Bitmap background;
 
     private float ratio = 0.9f;
@@ -145,7 +144,6 @@ public class DrawView extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     public void update() {
-
         for (int i = 0; i < M; i++) {
             for (int j = 0; j < M; j++) {
                 if (chessBoard[i][j] == NULL)
