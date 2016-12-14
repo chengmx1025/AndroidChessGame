@@ -2,6 +2,8 @@ package com.example.chengmx.group16chessgame.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -43,10 +45,13 @@ public class SingleGameActivity extends Activity {
     private byte[][] chessBoard = new byte[M][M];
     private List<byte[][]> chessBoards = new ArrayList<byte[][]>();
 
-
     private int gameState;
 
     private MessageDialog msgDialog;
+
+    private SoundPool soundPool;
+    private int soundId;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +61,9 @@ public class SingleGameActivity extends Activity {
         drawView = (DrawView) findViewById(R.id.drawView);
         undoButton = (Button) findViewById(R.id.undoButton);
         newGameButton = (Button) findViewById(R.id.newGameButton);
+
+        soundPool= new SoundPool(10, AudioManager.STREAM_SYSTEM,0);
+        soundId = soundPool.load(this,R.raw.sound,1);
 
         initialChessboard();
 
@@ -96,7 +104,8 @@ public class SingleGameActivity extends Activity {
                             Move move = new Move(row, col);
                             List<Move> moves = Rule.move(chessBoard, move, playerColor);
                             drawView.move(chessBoard, moves, move, playerColor);
-                            //aiTurn();
+                            soundPool.play(1,1, 1, 0, 0, 1);
+
 
                             //TODO
                             if(Rule.isEnded(chessBoard,move,playerColor)){
@@ -136,7 +145,6 @@ public class SingleGameActivity extends Activity {
                 initialChessboard();
                 drawView.initialChessBoard();
                 gameState = STATE_PLAYER_MOVE;
-                //drawView.update();
             }
         });
     }
@@ -147,14 +155,6 @@ public class SingleGameActivity extends Activity {
                 chessBoard[i][j] = NULL;
             }
         }
-    }
-
-    private void playerTurn(){
-        gameState = STATE_AI_MOVE;
-    }
-
-    private void aiTurn(){
-        gameState = STATE_PLAYER_MOVE;
     }
 
     private void gameOverMessage(byte playerColor){

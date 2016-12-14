@@ -40,7 +40,7 @@ public class MyMusicService extends Service {
         super.onCreate();
         if (mediaPlayer == null) {
             mediaPlayer = mediaPlayer.create(MyMusicService.this,R.raw.bgm);
-            mediaPlayer.setLooping(true);
+            mediaPlayer.setLooping(false);
         }
         mediaPlayer.setOnCompletionListener(new OnCompletionListener() {
 

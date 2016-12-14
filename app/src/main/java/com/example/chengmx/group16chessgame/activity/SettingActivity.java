@@ -34,6 +34,14 @@ public class SettingActivity extends Activity {
         musicToggleButton = (ToggleButton)findViewById(R.id.toggleButton1);
         musicToggleButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                if (musicService == null) {
+                        Intent intent = new Intent(SettingActivity.this,
+                                MyMusicService.class);
+                        bindService(intent, conn, Context.BIND_AUTO_CREATE);//绑定服务,后台也能播放
+                    } else {
+                        musicService.playMusic();
+                    }
+                /*
                 //first-clicked
                 if (musicToggleButton.isChecked()) {
                     if (musicService == null) {
@@ -52,6 +60,7 @@ public class SettingActivity extends Activity {
                         unbindService(conn);
                     }
                 }
+                */
             }
         });
     }

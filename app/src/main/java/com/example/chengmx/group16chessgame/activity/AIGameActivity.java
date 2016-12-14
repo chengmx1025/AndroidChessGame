@@ -2,6 +2,8 @@ package com.example.chengmx.group16chessgame.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -52,6 +54,10 @@ public class AIGameActivity extends Activity {
     private int newestAIX = -1;
     private int newestAIY = -1;
 
+    private SoundPool soundPool;
+    private int soundId;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +66,10 @@ public class AIGameActivity extends Activity {
         drawView = (DrawView) findViewById(R.id.drawView);
         undoButton = (Button) findViewById(R.id.undoButton);
         newGameButton = (Button) findViewById(R.id.newGameButton);
+
+        soundPool= new SoundPool(10, AudioManager.STREAM_SYSTEM,0);
+        soundId = soundPool.load(this,R.raw.sound,1);
+
 
         initialChessboard();
 
@@ -102,6 +112,7 @@ public class AIGameActivity extends Activity {
                             Move move = new Move(row, col);
                             List<Move> moves = Rule.move(chessBoard, move, playerColor);
                             drawView.move(chessBoard, moves, move, playerColor);
+                            soundPool.play(1,1, 1, 0, 0, 1);
 
 
                             gameState = STATE_AI_MOVE;
@@ -118,6 +129,8 @@ public class AIGameActivity extends Activity {
 
                                 moves = Rule.move(chessBoard, move, aiColor);
                                 drawView.move(chessBoard, moves, move, aiColor);
+                                soundPool.play(1,1, 1, 0, 0, 1);
+
 
                                 gameState = STATE_PLAYER_MOVE;
                                 if (Rule.isEnded(chessBoard, move, aiColor)) {
