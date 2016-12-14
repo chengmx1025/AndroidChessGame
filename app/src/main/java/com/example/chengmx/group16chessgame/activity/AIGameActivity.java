@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.chengmx.group16chessgame.R;
+import com.example.chengmx.group16chessgame.data.Data;
 import com.example.chengmx.group16chessgame.game.AI;
 import com.example.chengmx.group16chessgame.game.DrawView;
 import com.example.chengmx.group16chessgame.game.Move;
@@ -179,10 +180,15 @@ public class AIGameActivity extends Activity {
 
     private void gameOverMessage(byte playerColor){
         String msg;
-        if (playerColor==BLACK)
+        if (playerColor==BLACK) {
             msg = "BLACK WINS";
-        else
+            Data.add_win_AI(getApplicationContext());
+        }
+        else{
             msg = "WHITE WINS";
+            Data.add_lose_AI(getApplicationContext());
+        }
+
         msgDialog = new MessageDialog(AIGameActivity.this, msg);
         msgDialog.show();
     }

@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.chengmx.group16chessgame.R;
+import com.example.chengmx.group16chessgame.data.Data;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -27,7 +28,7 @@ public class ProfileActivity extends Activity {
     private int record_AI_lose = 0;
     private int record_player_win = 0;
     private int record_player_lose = 0;
-    private final String FILE_NAME = "profile.txt";
+    //private final String FILE_NAME = "profile.txt";
     private FileOutputStream fos = null;
     private EditText text_ID;
     private TextView text_record_AI;
@@ -40,13 +41,7 @@ public class ProfileActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
 
-        String pack = "con.example.chengmx.group16chessgame";
-        File file = new File(getApplicationContext().getFilesDir().getAbsolutePath() + "/" + FILE_NAME);
-        if(!file.exists()){
-            saveProfile("USER", 2, 0, 1, 0);
-        }
-
-        readProfile();
+        loadProfile();
 
         text_ID = (EditText) this.findViewById(R.id.text_ID);
         text_record_AI = (TextView) this.findViewById(R.id.text_record_AI);
@@ -83,51 +78,21 @@ public class ProfileActivity extends Activity {
     }
 
     public void saveProfile(String ID, int record_AI_win, int record_AI_lose, int record_player_win, int record_player_lose) {
-
-        try {
-            fos = openFileOutput(FILE_NAME,Context.MODE_PRIVATE);
-            String text = ID + "/" + Integer.toString(record_AI_win) + "/" + Integer.toString(record_AI_lose) + "/" + Integer.toString(record_player_win) + "/" + Integer.toString(record_player_lose);
-            fos.write(text.getBytes());
-        }
-        catch (java.io.FileNotFoundException e){
-            return;
-        }
-        catch (java.io.IOException e){
-            return;
-        }
+        String text = ID + "/" + Integer.toString(record_AI_win) + "/" + Integer.toString(record_AI_lose) + "/" + Integer.toString(record_player_win) + "/" + Integer.toString(record_player_lose);
+        Data.saveProfile(getApplicationContext(), text);
     }
 
-    public void readProfile(){
-        try {
-            FileInputStream fis = null;
-            fis = openFileInput(FILE_NAME);
-            if (fis.available() == 0){
-                return;
-            }
-            byte[] readBytes = new byte[fis.available()];
-            while(fis.read(readBytes) != -1){
-            }
-            String text = new String(readBytes);
-            String[] out = text.split("/");
-            this.ID = out[0];
-            this.record_AI_win = Integer.valueOf(out[1]);
-            this.record_AI_lose = Integer.valueOf(out[2]);
-            this.record_player_win = Integer.valueOf(out[3]);
-            this.record_player_lose = Integer.valueOf((out[4]));
-        }
-        catch (java.io.IOException e){
-            return;
-        }
+    public void loadProfile(){
+        String[] out = Data.loadProfile(getApplicationContext());
+        this.ID = out[0];
+        this.record_AI_win = Integer.valueOf(out[1]);
+        this.record_AI_lose = Integer.valueOf(out[2]);
+        this.record_player_win = Integer.valueOf(out[3]);
+        this.record_player_lose = Integer.valueOf((out[4]));
     }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        try {
-            fos.flush();
-            fos.close();
-        }
-        catch (java.io.IOException e){}
-
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             ProfileActivity.this.finish();
             overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
