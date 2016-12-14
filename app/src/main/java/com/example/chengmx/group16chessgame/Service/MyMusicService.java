@@ -15,11 +15,11 @@ import com.example.chengmx.group16chessgame.R;
 
 public class MyMusicService extends Service {
 
-    private MediaPlayer mediaPlayer;//声明媒体播放器
-    private int pos = 0;//声明播放进度
+    private MediaPlayer mediaPlayer;
+    private int pos = 0;
 
     /**
-     * 通过 binderService()绑定服务 启动后回调的方法
+     * Usr binderService() to bind Service
      */
     @Override
     public IBinder onBind(Intent intent) {
@@ -40,28 +40,27 @@ public class MyMusicService extends Service {
         super.onCreate();
         if (mediaPlayer == null) {
             mediaPlayer = mediaPlayer.create(MyMusicService.this,R.raw.bgm);
-            mediaPlayer.setLooping(false);// 设置不需要单曲循环
+            mediaPlayer.setLooping(true);
         }
         mediaPlayer.setOnCompletionListener(new OnCompletionListener() {
 
             @Override
             public void onCompletion(MediaPlayer mp) {
-                mediaPlayer.release();// 释放资源
+                mediaPlayer.release();
 
             }
         });
     }
 
-    // 播放音乐
     public void playMusic() {
         if (mediaPlayer != null && !mediaPlayer.isLooping()) {
             try {
                 if (pos != 0) {
-                    mediaPlayer.seekTo(pos);// 根据指定位置进行播放
+                    mediaPlayer.seekTo(pos);
                     mediaPlayer.start();
                 } else {
                     mediaPlayer.stop();
-                    mediaPlayer.prepare();// 重新启动之前必须prepare
+                    mediaPlayer.prepare();
                     mediaPlayer.start();
                 }
             } catch (Exception e) {
@@ -70,19 +69,10 @@ public class MyMusicService extends Service {
         }
     }
 
-    // 暂停音乐
-    public void pasueMusic() {
-        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-            pos = mediaPlayer.getCurrentPosition();
-            mediaPlayer.pause();
-        }
-    }
-
-    // 停止音乐
     public void stopMusic() {
         if (mediaPlayer != null) {
-            mediaPlayer.stop();//停止
-            mediaPlayer.release();// 资源重置
+            mediaPlayer.stop();
+            mediaPlayer.release();
         }
     }
 }

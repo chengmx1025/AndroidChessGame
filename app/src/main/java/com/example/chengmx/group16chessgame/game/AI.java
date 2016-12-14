@@ -14,6 +14,11 @@ public class AI {
     private static final byte BLACK = -1;
     private static final byte WHITE = 1;
 
+    /**
+     *  The initial value table:
+     *  the value of the center is high
+     *  and the value of the edge is low
+     */
     private int[][] valueTable = {
     {0,0,0,0,0,0,0,0,0,0},
     {0,1,1,1,1,1,1,1,1,0},
@@ -165,7 +170,7 @@ public class AI {
         }
 
         for (int i=0; i<10; i++) {
-            String abc = "";
+            String valueEachRow = "";
             for (int j = 0; j < 10; j++) {
 
                 if (valueTable[i][j] > max) {
@@ -173,16 +178,18 @@ public class AI {
                     col = j;
                     max = valueTable[i][j];
                 }
-                abc += String.valueOf(valueTable[i][j]) + " ";
+                valueEachRow += String.valueOf(valueTable[i][j]) + " ";
             }
-            Log.d("MyAndroid", abc);
+            Log.d("ValueTable:", valueEachRow);
         }
-        Log.d("MyAndroid", "=========================");
+        Log.d("ValueTable:", "=========================");
 
         Move move = new Move(row,col);
         return move;
     }
 
+    /*
+    // An easy implementation of AI: All random.
     public static Move getAINextMove0(byte[][] chessBoard, int chessColor) {
         Random random = new Random();
         int col,row;
@@ -195,4 +202,5 @@ public class AI {
         Move move = new Move(col,row);
         return move;
     }
+    */
 }

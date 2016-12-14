@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.text.InputType;
 import android.view.KeyEvent;
 import android.view.View;
-import android.content.Context;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -13,8 +12,6 @@ import android.widget.TextView;
 import com.example.chengmx.group16chessgame.R;
 import com.example.chengmx.group16chessgame.data.Data;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 /**

@@ -38,7 +38,7 @@ public class AIGameActivity extends Activity {
 
     private static final int M = 10;
     private byte[][] chessBoard = new byte[M][M];
-    private List<byte[][]> chessBoards = new ArrayList<byte[][]>();
+    //private List<byte[][]> chessBoards = new ArrayList<byte[][]>();
     private int gameState;
 
     private DrawView drawView = null;
@@ -102,9 +102,9 @@ public class AIGameActivity extends Activity {
                             Move move = new Move(row, col);
                             List<Move> moves = Rule.move(chessBoard, move, playerColor);
                             drawView.move(chessBoard, moves, move, playerColor);
-                            //aiTurn();
 
-                            //TODO
+
+                            gameState = STATE_AI_MOVE;
                             if(Rule.isEnded(chessBoard,move,playerColor)){
                                 gameState = STATE_GAME_OVER;
                                 gameOverMessage(playerColor);
@@ -119,19 +119,12 @@ public class AIGameActivity extends Activity {
                                 moves = Rule.move(chessBoard, move, aiColor);
                                 drawView.move(chessBoard, moves, move, aiColor);
 
+                                gameState = STATE_PLAYER_MOVE;
                                 if (Rule.isEnded(chessBoard, move, aiColor)) {
                                     gameState = STATE_GAME_OVER;
                                     gameOverMessage(aiColor);
                                 }
                             }
-
-                            /*
-                            if (playerColor == BLACK) {
-                                playerColor = WHITE;
-                            } else {
-                                playerColor = BLACK;
-                            }
-                            */
                         }
                         break;
 
@@ -168,14 +161,6 @@ public class AIGameActivity extends Activity {
                 chessBoard[i][j] = NULL;
             }
         }
-    }
-
-    private void playerTurn(){
-        gameState = STATE_AI_MOVE;
-    }
-
-    private void aiTurn(){
-        gameState = STATE_PLAYER_MOVE;
     }
 
     private void gameOverMessage(byte playerColor){

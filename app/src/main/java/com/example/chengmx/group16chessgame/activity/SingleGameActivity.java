@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 
 import com.example.chengmx.group16chessgame.R;
 import com.example.chengmx.group16chessgame.game.DrawView;
@@ -31,6 +32,8 @@ public class SingleGameActivity extends Activity {
     private static final int STATE_GAME_OVER = 2;
 
     private DrawView drawView = null;
+    private Button undoButton;
+    private Button newGameButton;
 
     private byte playerColor = BLACK;
     private byte aiColor = WHITE;
@@ -51,6 +54,9 @@ public class SingleGameActivity extends Activity {
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.single_game);
         drawView = (DrawView) findViewById(R.id.drawView);
+        undoButton = (Button) findViewById(R.id.undoButton);
+        newGameButton = (Button) findViewById(R.id.newGameButton);
+
         initialChessboard();
 
         drawView.setOnTouchListener(new View.OnTouchListener() {
@@ -112,6 +118,25 @@ public class SingleGameActivity extends Activity {
                 }
 
                 return true;
+            }
+        });
+
+        /*
+        undoButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                chessBoard[newestPlayerX][newestPlayerY] = NULL;
+                chessBoard[newestAIX][newestAIY] = NULL;
+                drawView.updateChessBoard(chessBoard);
+            }
+        });
+        */
+
+        newGameButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                initialChessboard();
+                drawView.initialChessBoard();
+                gameState = STATE_PLAYER_MOVE;
+                //drawView.update();
             }
         });
     }
