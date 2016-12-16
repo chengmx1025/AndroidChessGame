@@ -73,12 +73,12 @@
         </LinearLayout>
     </LinearLayout>
 
+    <!--
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="92dp"
         >
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -88,7 +88,6 @@
             android:layout_marginTop="30dp"
             android:layout_marginLeft="20dp"
             />
-
         <SeekBar
             style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="match_parent"
@@ -98,15 +97,15 @@
             android:progress="4"
             android:id="@+id/seekBar"
             android:layout_weight="1" />
-
-
     </LinearLayout>
+    -->
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        
+        android:layout_height="94dp"
+        android:layout_weight="0.48">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -124,8 +123,23 @@
             android:layout_marginRight="30dp"
             android:layout_marginLeft="50dp"
             android:entries="@array/themes"
-
             />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="92dp"
+        >
+
+
+        <Button
+            android:text="Save Settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/saveButton"
+
+            android:layout_marginLeft="128dp" />
     </LinearLayout>
 
 

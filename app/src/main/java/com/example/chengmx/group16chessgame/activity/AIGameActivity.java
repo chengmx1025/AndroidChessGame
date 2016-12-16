@@ -22,6 +22,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * CSIT 5510 (L1)
+ * CHENG Mingxin, 20387442, mchengaa@connect.ust.hk
+ * CHEN Kangle, 20403480, kchenam@connect.ust.hk
+ * WANG Ziwei, 20402072, zwangcp@connect.ust.hk
+ */
+
+/**
  * Created by chengmx on 2016/11/14.
  */
 
@@ -129,7 +136,7 @@ public class AIGameActivity extends Activity {
 
                                 moves = Rule.move(chessBoard, move, aiColor);
                                 drawView.move(chessBoard, moves, move, aiColor);
-                                soundPool.play(1,1, 1, 0, 0, 1);
+                                //soundPool.play(1,1, 1, 0, 0, 1);
 
 
                                 gameState = STATE_PLAYER_MOVE;

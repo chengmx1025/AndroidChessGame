@@ -7,13 +7,20 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 /**
+ * CSIT 5510 (L1)
+ * CHENG Mingxin, 20387442, mchengaa@connect.ust.hk
+ * CHEN Kangle, 20403480, kchenam@connect.ust.hk
+ * WANG Ziwei, 20402072, zwangcp@connect.ust.hk
+ */
+
+/**
  * Created by Will on 2016-12-13.
  */
 
 public class Data {
 
     private static String PROFILE_NAME = "profile.txt";
-    private static String SETTING_NAME = "profile.txt";
+    private static String SETTING_NAME = "setting.txt";
 
     public static void saveProfile(Context fileContext, String profileContent) {
         FileOutputStream fos = null;
@@ -121,7 +128,7 @@ public class Data {
     public static String[] loadSetting(Context fileContext){
         File file = new File(fileContext.getApplicationContext().getFilesDir().getAbsolutePath() + "/setting.txt");
         if(!file.exists()){
-            saveProfile(fileContext, "0/0/9/0");
+            saveProfile(fileContext, "0/0/0");
         }
         try {
             FileInputStream fis = null;

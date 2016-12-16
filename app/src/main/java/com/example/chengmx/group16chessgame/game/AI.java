@@ -7,6 +7,13 @@ import com.example.chengmx.group16chessgame.game.Move;
 import java.util.Random;
 
 /**
+ * CSIT 5510 (L1)
+ * CHENG Mingxin, 20387442, mchengaa@connect.ust.hk
+ * CHEN Kangle, 20403480, kchenam@connect.ust.hk
+ * WANG Ziwei, 20402072, zwangcp@connect.ust.hk
+ */
+
+/**
  * Created by chengmx on 2016/11/14.
  */
 

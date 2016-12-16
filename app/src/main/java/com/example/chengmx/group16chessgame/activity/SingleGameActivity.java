@@ -19,6 +19,14 @@ import com.example.chengmx.group16chessgame.widget.MessageDialog;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * CSIT 5510 (L1)
+ * CHENG Mingxin, 20387442, mchengaa@connect.ust.hk
+ * CHEN Kangle, 20403480, kchenam@connect.ust.hk
+ * WANG Ziwei, 20402072, zwangcp@connect.ust.hk
+ */
+
 /**
  * Created by chengmx on 2016/11/12.
  */
@@ -30,20 +38,17 @@ public class SingleGameActivity extends Activity {
     private static final byte WHITE = 1;
 
     private static final int STATE_PLAYER_MOVE = 0;
-    private static final int STATE_AI_MOVE = 1;
-    private static final int STATE_GAME_OVER = 2;
+    private static final int STATE_GAME_OVER = 1;
 
     private DrawView drawView = null;
     private Button undoButton;
     private Button newGameButton;
 
     private byte playerColor = BLACK;
-    private byte aiColor = WHITE;
 
     private static final int M = 10;
 
     private byte[][] chessBoard = new byte[M][M];
-    private List<byte[][]> chessBoards = new ArrayList<byte[][]>();
 
     private int gameState;
 
@@ -51,6 +56,9 @@ public class SingleGameActivity extends Activity {
 
     private SoundPool soundPool;
     private int soundId;
+
+    private int newestPlayerX = 0;
+    private int newestPlayerY = 0;
 
 
     @Override
@@ -106,8 +114,9 @@ public class SingleGameActivity extends Activity {
                             drawView.move(chessBoard, moves, move, playerColor);
                             soundPool.play(1,1, 1, 0, 0, 1);
 
+                            newestPlayerX = row;
+                            newestPlayerY = col;
 
-                            //TODO
                             if(Rule.isEnded(chessBoard,move,playerColor)){
                                 gameState = STATE_GAME_OVER;
                                 gameOverMessage(playerColor);
@@ -130,15 +139,13 @@ public class SingleGameActivity extends Activity {
             }
         });
 
-        /*
+
         undoButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 chessBoard[newestPlayerX][newestPlayerY] = NULL;
-                chessBoard[newestAIX][newestAIY] = NULL;
                 drawView.updateChessBoard(chessBoard);
             }
         });
-        */
 
         newGameButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

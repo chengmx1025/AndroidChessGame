@@ -17,7 +17,10 @@
         android:textColor="#ffffff"/>
 
     <TextView
-        android:text="This is a game called Five-In-A-Roll.\nPlayers take turns to put a chess on the board.\nThe one who first makes five chess in a line will win the game.\n\nHope you enjoy it! :)"
+        android:text="This is a game called Five-In-A-Roll.\nPlayers take turns to put a chess on the board.\nThe one who first makes five chess in a line will win the game.\n\nHope you enjoy it! :)\n\n\nDeveloped by:
+        CHENG Mingxin
+        CHEN Kangle
+        WANG Ziwei"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView2"
