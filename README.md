@@ -1,4 +1,4 @@
-# Group16 ChessGame - Five In A Row
+# An Android Chess Game - Five In A Row
 
 ##Introduction
 This is a game called **Five-In-A-Row**.
